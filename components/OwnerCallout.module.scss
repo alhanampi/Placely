@@ -1,0 +1,75 @@
+@use "@/styles/mixins" as *;
+
+.section {
+  @include container;
+  padding-top: 72px;
+}
+
+.band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: clamp(28px, 6vw, 56px);
+  border-radius: 36px;
+  background: $ink;
+  color: $surface;
+}
+
+.copy {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.eyebrow {
+  @include eyebrow(color-mix(in srgb, var(--accent) 45%, $surface));
+}
+
+.title {
+  @include heading(clamp(30px, 4.5vw, 40px), -0.03em);
+  margin-block: 10px 14px;
+}
+
+.lead {
+  max-width: 520px;
+  font-size: 17px;
+  color: color-mix(in srgb, $surface 72%, $ink);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primary,
+.secondary {
+  @include pill;
+  min-height: 48px;
+  padding-inline: 28px;
+  font-size: 15px;
+
+  &:focus-visible {
+    outline: 2px solid $surface;
+    outline-offset: 2px;
+  }
+}
+
+.primary {
+  background: $surface;
+  color: $ink;
+
+  &:hover {
+    background: $chip;
+  }
+}
+
+.secondary {
+  border: 1px solid color-mix(in srgb, $surface 25%, $ink);
+  color: $surface;
+
+  &:hover {
+    border-color: $surface;
+  }
+}

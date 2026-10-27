@@ -1,0 +1,77 @@
+@use "@/styles/mixins" as *;
+
+.hero {
+  @include container;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 48px;
+  padding-block: 64px 32px;
+}
+
+.copy {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid $line;
+  border-radius: $radius-pill;
+  background: $surface;
+  font-size: 13px;
+  font-weight: 600;
+  color: $muted;
+}
+
+.title {
+  @include heading(clamp(40px, 7vw, 64px), -0.035em);
+  margin-block: 20px;
+  line-height: 1.02;
+}
+
+.lead {
+  max-width: 480px;
+  font-size: 18px;
+  color: $muted;
+}
+
+.media {
+  position: relative;
+  flex: 1 1 380px;
+  min-width: 0;
+  height: clamp(280px, 40vw, 420px);
+  border-radius: 32px;
+  overflow: hidden;
+  background: $chip;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.floatingCard {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  padding: 14px 18px;
+  border-radius: $radius-tile;
+  background: $surface;
+  box-shadow: 0 10px 30px rgba($ink, 0.12);
+}
+
+.floatingTitle {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.floatingMeta {
+  font-size: 14px;
+  color: $muted;
+}
+
+.search {
+  @include container;
+}

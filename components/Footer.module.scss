@@ -1,0 +1,58 @@
+@use "@/styles/mixins" as *;
+
+.footer {
+  @include container;
+  padding-block: 72px 40px;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 28px;
+  border-top: 1px solid $line;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.logo {
+  width: auto;
+  height: 28px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: $muted;
+
+  a {
+    @include focus-ring;
+    display: inline-flex;
+    align-items: center;
+    min-height: $tap-target;
+
+    &:hover {
+      color: $ink;
+    }
+  }
+}
+
+.copy {
+  font-size: 14px;
+  color: $muted;
+}

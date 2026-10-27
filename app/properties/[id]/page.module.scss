@@ -1,0 +1,357 @@
+@use "@/styles/mixins" as *;
+
+.back {
+  @include container;
+  padding-block: 28px 20px;
+}
+
+.backLink {
+  @include focus-ring;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: $tap-target;
+  border-radius: $radius-pill;
+  font-size: 15px;
+  font-weight: 600;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+// Galería bento
+.gallery {
+  @include container;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 160px;
+  gap: 12px;
+
+  @include respond(md) {
+    grid-template-rows: repeat(2, 204px);
+  }
+}
+
+.galleryItem {
+  position: relative;
+  border-radius: $radius-card;
+  overflow: hidden;
+  background: $chip;
+
+  &:first-child {
+    grid-column: 1 / -1;
+    grid-row: span 2;
+  }
+}
+
+.galleryImage {
+  object-fit: cover;
+}
+
+.gallery1 {
+  grid-template-columns: 1fr;
+}
+
+@include respond(md) {
+  .gallery2,
+  .gallery3 {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .gallery4 {
+    grid-template-columns: 2fr 1fr 1fr;
+
+    .galleryItem:nth-child(2) {
+      grid-column: 2 / 4;
+    }
+  }
+
+  .gallery2,
+  .gallery3,
+  .gallery4 {
+    .galleryItem:first-child {
+      grid-column: 1;
+      grid-row: 1 / 3;
+    }
+  }
+
+  .gallery2 .galleryItem:nth-child(2) {
+    grid-row: 1 / 3;
+  }
+}
+
+// Layout principal + aside
+.layout {
+  @include container;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 24px;
+  padding-top: 40px;
+}
+
+.main {
+  display: flex;
+  flex: 1 1 560px;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.aside {
+  display: flex;
+  flex: 1 1 300px;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+
+  @include respond(lg) {
+    flex: 0 1 380px;
+    position: sticky;
+    top: 96px;
+  }
+}
+
+.panel {
+  @include card;
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.panelTitle {
+  @include heading(22px);
+  margin-bottom: 20px;
+}
+
+.typePill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: $radius-pill;
+  background: $chip;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.title {
+  @include heading(clamp(32px, 5vw, 44px), -0.035em);
+  margin-block: 14px 10px;
+  line-height: 1.05;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $muted;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat {
+  display: flex;
+  flex: 1 1 140px;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border: 1px solid $line;
+  border-radius: $radius-tile-lg;
+}
+
+.statIcon {
+  flex-shrink: 0;
+  font-size: 26px;
+  color: $accent;
+}
+
+.statValue {
+  @include heading(22px, 0);
+  line-height: 1.1;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: $muted;
+}
+
+.description {
+  font-size: 17px;
+  color: $muted;
+}
+
+.rates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rate {
+  flex: 1 1 160px;
+  padding: 18px 20px;
+  border: 1px solid $line;
+  border-radius: $radius-tile-lg;
+}
+
+.rateMain {
+  border-color: $ink;
+}
+
+.rateLabel {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.rateValue {
+  @include heading(26px);
+  margin-top: 6px;
+}
+
+.rateMissing {
+  color: $line-strong;
+}
+
+.amenities {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 14px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.amenity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.amenityIcon {
+  flex-shrink: 0;
+  font-size: 18px;
+  color: $accent;
+}
+
+.mapPanel {
+  padding: 12px;
+}
+
+.map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 320px;
+  border-radius: $radius-tile-lg;
+  background: $chip;
+  font-size: 14px;
+  color: $muted;
+}
+
+.mapIcon {
+  font-size: 36px;
+  color: $ink;
+  opacity: 0.5;
+}
+
+.asidePrice {
+  @include heading(40px, -0.03em);
+  margin-top: 4px;
+}
+
+.asideUnit {
+  font-family: $font-body;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0;
+  color: $muted;
+}
+
+.asideActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+%button {
+  @include pill;
+  @include focus-ring;
+  flex: 1 1 140px;
+  min-height: 48px;
+  padding-inline: 20px;
+  font-size: 15px;
+}
+
+.buttonDark {
+  @extend %button;
+  border: 0;
+  background: $ink;
+  color: $surface;
+
+  &:hover {
+    background: color-mix(in srgb, $ink 85%, $surface);
+  }
+}
+
+.buttonOutline {
+  @extend %button;
+  border: 1px solid $ink;
+  background: $surface;
+  color: $ink;
+
+  &:hover {
+    background: $ground;
+  }
+}
+
+.buttonAccent {
+  @extend %button;
+  flex: 0 0 auto;
+  border: 0;
+  background: $accent;
+  color: $surface;
+
+  &:hover {
+    background: color-mix(in srgb, var(--accent) 88%, $ink);
+  }
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .panelTitle {
+    margin-bottom: 0;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input {
+  @include input;
+  resize: vertical;
+}

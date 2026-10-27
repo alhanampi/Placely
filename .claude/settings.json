@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "agent",
+            "statusMessage": "Updating README...",
+            "timeout": 60,
+            "prompt": "The tool input is: $ARGUMENTS\n\nCheck if the modified file is package.json, or if a new file/folder was created that affects project structure (anything outside node_modules, .next, .git). If yes:\n1. Run a shell command to list the project tree (excluding node_modules, .next, .git, public/images)\n2. Read package.json to get dependencies and scripts\n3. Update the Structure section and the Scripts table in README.md to reflect the current state\n\nIf the modified file is unrelated to structure or dependencies (e.g. a CSS or layout file), do nothing."
+          }
+        ]
+      }
+    ]
+  }
+}

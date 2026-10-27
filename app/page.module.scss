@@ -1,0 +1,31 @@
+@use "@/styles/mixins" as *;
+
+.types {
+  @include container;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding-top: 24px;
+}
+
+.typesLabel {
+  margin-right: 8px;
+  font-size: 14px;
+  color: $muted;
+}
+
+.chip {
+  @include pill;
+  @include focus-ring;
+  min-height: $tap-target;
+  padding-inline: 16px;
+  border: 1px solid $line;
+  background: $surface;
+  font-size: 14px;
+  font-weight: 500;
+
+  &:hover {
+    border-color: $ink;
+  }
+}

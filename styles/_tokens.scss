@@ -1,0 +1,33 @@
+// Colores
+$ink: #0b0f14;
+$ground: #f5f6f8;
+$surface: #ffffff;
+$line: #e6e8ec;
+$line-strong: #d6dae1;
+$muted: #5b6472;
+$chip: #eef0f4;
+$accent: var(--accent);
+
+// Radios
+$radius-input: 14px;
+$radius-tile: 18px;
+$radius-tile-lg: 20px;
+$radius-image: 22px;
+$radius-card: 28px;
+$radius-pill: 999px;
+
+// Layout
+$container-max: 1280px;
+$gutter: 24px;
+$tap-target: 44px;
+
+// Breakpoints
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+);
+
+// Tipografía
+$font-heading: var(--font-manrope), system-ui, sans-serif;
+$font-body: var(--font-inter), system-ui, sans-serif;

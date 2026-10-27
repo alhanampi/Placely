@@ -1,0 +1,49 @@
+@use "@/styles/mixins" as *;
+
+.section {
+  @include container;
+  padding-top: 72px;
+}
+
+.header {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  @include eyebrow($accent);
+}
+
+.title {
+  @include heading(clamp(28px, 4vw, 36px), -0.03em);
+  margin-top: 6px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 24px;
+}
+
+.empty {
+  color: $muted;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.moreLink {
+  @include pill;
+  @include focus-ring;
+  min-height: 48px;
+  padding-inline: 28px;
+  border: 1px solid $ink;
+  font-size: 15px;
+
+  &:hover {
+    background: $ink;
+    color: $surface;
+  }
+}

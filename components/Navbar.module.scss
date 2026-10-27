@@ -1,0 +1,259 @@
+@use "@/styles/mixins" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: $surface;
+  border-bottom: 1px solid $line;
+}
+
+.inner {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 14px;
+}
+
+.brand {
+  @include focus-ring;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: $tap-target;
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  border-radius: $radius-tile;
+}
+
+.logo {
+  width: auto;
+  height: 32px;
+}
+
+.desktopNav {
+  display: none;
+  gap: 4px;
+
+  @include respond(md) {
+    display: flex;
+  }
+}
+
+.navLink {
+  @include pill;
+  @include focus-ring;
+  min-height: $tap-target;
+  padding-inline: 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: $muted;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+
+  &:hover {
+    color: $ink;
+  }
+}
+
+.navLinkActive {
+  background: $chip;
+  color: $ink;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ctaButton {
+  @include pill;
+  @include focus-ring;
+  display: none;
+  min-height: $tap-target;
+  padding-inline: 20px;
+  border: 0;
+  background: $ink;
+  color: $surface;
+  font-size: 15px;
+
+  &:hover {
+    background: color-mix(in srgb, $ink 85%, $surface);
+  }
+
+  @include respond(md) {
+    display: inline-flex;
+  }
+}
+
+.iconButton {
+  @include focus-ring;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $tap-target;
+  height: $tap-target;
+  padding: 0;
+  border: 1px solid $line;
+  border-radius: $radius-pill;
+  background: $surface;
+  color: $ink;
+  font-size: 20px;
+
+  &:hover {
+    background: $ground;
+  }
+}
+
+.menuToggle {
+  @include respond(md) {
+    display: none;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding-inline: 4px;
+  border-radius: $radius-pill;
+  background: $accent;
+  color: $surface;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.avatarButton {
+  @include focus-ring;
+  display: flex;
+  width: $tap-target;
+  height: $tap-target;
+  padding: 0;
+  border: 0;
+  border-radius: $radius-pill;
+  background: $ink;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Dropdown del perfil (Radix)
+.menu {
+  z-index: 30;
+  min-width: 200px;
+  padding: 6px;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-tile;
+  box-shadow: 0 12px 32px rgba($ink, 0.12);
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: $tap-target;
+  padding-inline: 12px;
+  border: 0;
+  border-radius: $radius-input;
+  background: transparent;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+
+  &[data-highlighted] {
+    background: $chip;
+  }
+}
+
+.menuSeparator {
+  height: 1px;
+  margin: 6px 4px;
+  background: $line;
+}
+
+// Menú mobile (Radix Dialog)
+.sheetOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba($ink, 0.4);
+}
+
+.sheet {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: min(320px, 100%);
+  padding: 16px $gutter;
+  background: $surface;
+  border-left: 1px solid $line;
+}
+
+.sheetHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sheetTitle {
+  @include heading(20px);
+}
+
+.sheetNav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sheetLink {
+  @include focus-ring;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding-inline: 16px;
+  border: 0;
+  border-radius: $radius-tile;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+
+  &:hover {
+    background: $ground;
+  }
+}
+
+.sheetCta {
+  @include pill;
+  @include focus-ring;
+  min-height: 48px;
+  margin-top: 8px;
+  border: 0;
+  background: $ink;
+  color: $surface;
+  font-size: 16px;
+}

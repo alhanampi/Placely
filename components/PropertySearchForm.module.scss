@@ -1,0 +1,82 @@
+@use "@/styles/mixins" as *;
+
+.form {
+  @include card;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 8px;
+  padding: 10px;
+  box-shadow: 0 8px 30px rgba($ink, 0.06);
+}
+
+.field {
+  display: flex;
+  flex: 1 1 200px;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 20px;
+  border-radius: $radius-tile;
+  background: $ground;
+
+  &:focus-within {
+    outline: 2px solid $accent;
+    outline-offset: -2px;
+  }
+}
+
+.fieldWide {
+  flex: 2 1 260px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.control {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 16px;
+  color: $ink;
+  outline: none;
+
+  &::placeholder {
+    color: $muted;
+  }
+}
+
+.submit {
+  @include focus-ring;
+  display: flex;
+  flex: 1 1 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  padding-inline: 32px;
+  border: 0;
+  border-radius: $radius-tile;
+  background: $accent;
+  color: $surface;
+  font-size: 16px;
+  font-weight: 600;
+
+  &:hover {
+    background: color-mix(in srgb, var(--accent) 88%, $ink);
+  }
+
+  @include respond(md) {
+    flex: 0 0 auto;
+    min-height: 64px;
+  }
+
+  svg {
+    font-size: 20px;
+  }
+}
